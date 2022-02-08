@@ -8,3 +8,6 @@
 // Windows 头文件
 #include <windows.h>
 #include "TlHelp32.h"
+#include "DbgHelp.h"
+
+#pragma comment(lib, "dbghelp.lib")
