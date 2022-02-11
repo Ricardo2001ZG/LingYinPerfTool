@@ -88,7 +88,8 @@ HRESULT LingYinPerfTool::GetFunctionAddressFromSymbol(
 		pnFunctionAddress = pSymbolInfo->Address;
 	}
 	SymCleanup(hProcess);
-	// 获取函数所在 DLL 的实时地址
+	// 获取函数所在 DLL 的基地址
+	/*
 	MODULEENTRY32 pe = { sizeof(MODULEENTRY32) };
 	HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, pnProcessID);
 	if (hSnapshot == INVALID_HANDLE_VALUE)
@@ -109,6 +110,7 @@ HRESULT LingYinPerfTool::GetFunctionAddressFromSymbol(
 		}
 	}
 	pnFunctionAddress += reinterpret_cast<ULONG64>(pe.hModule);
+	*/
 	// 关闭句柄
 	CloseHandle(hProcess);
 	return S_OK;
