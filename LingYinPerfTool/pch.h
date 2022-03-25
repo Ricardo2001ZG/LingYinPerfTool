@@ -11,5 +11,3 @@
 #include "framework.h"
 
 #endif //PCH_H
-
-#include "Publish/Include/LingYinPerfToolDll.h"

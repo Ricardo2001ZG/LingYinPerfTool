@@ -156,7 +156,6 @@
     <ClInclude Include="Publish\Include\LingYinPerfToolDll.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Internal\LingYinPerfToolDll.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
