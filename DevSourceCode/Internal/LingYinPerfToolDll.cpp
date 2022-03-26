@@ -195,7 +195,7 @@ HRESULT LingYinPerfTool::RusumeByProcessID(DWORD& pnProcessID)
 
 #define LYCOMMONAPI extern "C" __declspec(dllexport)
 
-LYCOMMONAPI HRESULT GetPidFromAppName(LPWSTR& pszAppProcessName, DWORD& pnProcessID)
+LYCOMMONAPI HRESULT GetPidFromAppName(std::wstring& pszAppProcessName, DWORD& pnProcessID)
 {
 	return LingYinPerfTool::GetPidFromAppName(pszAppProcessName, pnProcessID);
 }

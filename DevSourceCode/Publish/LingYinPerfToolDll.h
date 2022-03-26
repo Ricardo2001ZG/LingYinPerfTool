@@ -49,6 +49,8 @@ namespace LingYinPerfTool {
 	*/
 	HRESULT GetPidFromAppName(std::wstring& pszAppProcessName, DWORD& pnProcessID);
 
+	// TODO: std::wstring 兼容性改动
+
 	/*! @fn HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, PCSTR pszFunctionName, ULONG64& pnFunctionAddress);
 	*  @brief 传入进程 Pid 与需要获取地址的函数名，通过符号表查找函数地址
 	*  @param[in]  nProcessID	      输入需要查找函数对应进程的 Pid
