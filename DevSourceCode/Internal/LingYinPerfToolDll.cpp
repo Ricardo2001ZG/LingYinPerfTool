@@ -21,11 +21,11 @@
 *																						*
 ****************************************************************************************/
 
-#include "../pch.h"
-#include "../Publish/Include/LingYinPerfToolDll.h"
+#include "../Publish/pch.h"
+#include "../Publish/LingYinPerfToolDll.h"
 
 HRESULT LingYinPerfTool::GetPidFromAppName(
-	LPWSTR& pszAppProcessName,
+	std::wstring& pszAppProcessName,
 	DWORD& pnProcessId
 )
 {
@@ -42,7 +42,7 @@ HRESULT LingYinPerfTool::GetPidFromAppName(
 	}
 	while (Process32Next(hSnapshot, &pe))
 	{
-		if (lstrcmpiW(pszAppProcessName, pe.szExeFile) == 0)
+		if (lstrcmpi(pszAppProcessName.c_str(), pe.szExeFile) == 0)
 		{
 			pnProcessId = pe.th32ProcessID;
 			CloseHandle(hSnapshot);

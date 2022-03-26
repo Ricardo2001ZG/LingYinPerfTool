@@ -26,7 +26,7 @@
 *																						*
 ****************************************************************************************/
 
-#include "../../framework.h"
+#include "pch.h"
 
 /****************************************************************************************
 * TODO list:
@@ -41,13 +41,13 @@
 ****************************************************************************************/
 
 namespace LingYinPerfTool {
-	/*! @fn HRESULT GetPidFromAppName(LPWSTR& pszAppProcessName, DWORD& nProcessID);
+	/*! @fn HRESULT GetPidFromAppName(std::wstring& pszAppProcessName, DWORD& pnProcessID);
 	*  @brief 传入程序进程名，返回查找到的第一个对应程序的 Pid（暂时仅实现单个同名进程获取）
 	*  @param[in]  pszAppProcessName 输入需要查找 Pid 的程序进程名
-	*  @param[out] hProcessHandle	 返回打开程序的句柄
+	*  @param[out] pnProcessID		 返回打开程序的 Pid
 	*  @return						 如果失败，返回 E_FAIL
 	*/
-	HRESULT GetPidFromAppName(LPWSTR& pszAppProcessName, DWORD& pnProcessID);
+	HRESULT GetPidFromAppName(std::wstring& pszAppProcessName, DWORD& pnProcessID);
 
 	/*! @fn HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, PCSTR pszFunctionName, ULONG64& pnFunctionAddress);
 	*  @brief 传入进程 Pid 与需要获取地址的函数名，通过符号表查找函数地址

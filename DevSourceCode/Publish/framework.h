@@ -5,6 +5,9 @@
 // 标准 c 库
 #include <stdlib.h>
 
+// C++ STL
+#include <string>
+
 // Windows 头文件
 #include <windows.h>
 #include "TlHelp32.h"

@@ -15,22 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Publish\Include\LingYinPerfToolDll.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="..\DevSourceCode\Internal\LingYinPerfToolDll.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DevSourceCode\Internal\pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Internal\LingYinPerfToolDll.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="..\DevSourceCode\Publish\framework.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DevSourceCode\Publish\LingYinPerfToolDll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DevSourceCode\Publish\pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
