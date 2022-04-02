@@ -49,9 +49,7 @@ namespace LingYinPerfTool {
 	*/
 	HRESULT GetPidFromAppName(std::wstring& pszAppProcessName, DWORD& pnProcessID);
 
-	// TODO: std::wstring 兼容性改动
-
-	/*! @fn HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, PCSTR pszFunctionName, ULONG64& pnFunctionAddress);
+	/*! @fn HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, std::wstring& pszFunctionDllName, std::wstring& pszFunctionName, ULONG64& pnFunctionAddress);
 	*  @brief 传入进程 Pid 与需要获取地址的函数名，通过符号表查找函数地址
 	*  @param[in]  nProcessID	      输入需要查找函数对应进程的 Pid
 	*  @param[in]  pszFunctionDllName 输入需要查找函数所在的 DLL
@@ -59,7 +57,7 @@ namespace LingYinPerfTool {
 	*  @param[out] nProcessID	      返回对应的函数地址
 	*  @return					      如果失败，返回 E_FAIL
 	*/
-	HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, LPWSTR& pszFunctionDllName, PCSTR pszFunctionName, ULONG64& pnFunctionAddress);
+	HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, std::wstring& pszFunctionDllName, std::wstring& pszFunctionName, ULONG64& pnFunctionAddress);
 
 	/*! @fn HRESULT CheckEIPAndSuspendByProcessID(DWORD& nProcessID, DWORD nAddress, size_t nSize);
 	*  @brief 根据 Pid 暂停对应进程的所有线程

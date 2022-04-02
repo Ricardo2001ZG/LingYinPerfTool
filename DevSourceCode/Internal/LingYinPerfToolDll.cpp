@@ -58,8 +58,8 @@ HRESULT LingYinPerfTool::GetPidFromAppName(
 
 HRESULT LingYinPerfTool::GetFunctionAddressFromSymbol(
 	DWORD& pnProcessID,
-	LPWSTR& pszFunctionDllName,
-	PCSTR pszFunctionName,
+	std::wstring& pszFunctionDllName,
+	std::wstring& pszFunctionName,
 	ULONG64& pnFunctionAddress
 )
 {
@@ -69,7 +69,7 @@ HRESULT LingYinPerfTool::GetFunctionAddressFromSymbol(
 		return E_FAIL;
 	}
 	// 获取符号表中函数地址
-	if (!SymInitialize(hProcess, NULL, FALSE))
+	if (!SymInitializeW(hProcess, NULL, FALSE))
 	{
 		CloseHandle(hProcess);
 		return E_FAIL;
@@ -81,38 +81,14 @@ HRESULT LingYinPerfTool::GetFunctionAddressFromSymbol(
 		return E_FAIL;
 	}
 	char cMemory[1024];
-	auto pSymbolInfo = reinterpret_cast<SYMBOL_INFO*>(cMemory);
-	pSymbolInfo->SizeOfStruct = sizeof(SYMBOL_INFO);
-	pSymbolInfo->MaxNameLen = sizeof(cMemory) - sizeof(SYMBOL_INFO);
-	if (SymFromName(hProcess, pszFunctionName, pSymbolInfo))
+	auto pSymbolInfo = reinterpret_cast<SYMBOL_INFOW*>(cMemory);
+	pSymbolInfo->SizeOfStruct = sizeof(SYMBOL_INFOW);
+	pSymbolInfo->MaxNameLen = sizeof(cMemory) - sizeof(SYMBOL_INFOW);
+	if (SymFromNameW(hProcess, pszFunctionName.c_str(), pSymbolInfo))
 	{
 		pnFunctionAddress = pSymbolInfo->Address;
 	}
 	SymCleanup(hProcess);
-	// 获取函数所在 DLL 的基地址
-	/*
-	MODULEENTRY32 pe = { sizeof(MODULEENTRY32) };
-	HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, pnProcessID);
-	if (hSnapshot == INVALID_HANDLE_VALUE)
-	{
-		return E_FAIL;
-	}
-	if (!Module32FirstW(hSnapshot, &pe))
-	{
-		return E_FAIL;
-	}
-	while (Module32NextW(hSnapshot, &pe))
-	{
-		if (lstrcmpiW(pszFunctionDllName, pe.szModule) == 0)
-		{
-			pe.hModule;
-			CloseHandle(hSnapshot);
-			break;
-		}
-	}
-	pnFunctionAddress += reinterpret_cast<ULONG64>(pe.hModule);
-	*/
-	// 关闭句柄
 	CloseHandle(hProcess);
 	return S_OK;
 }
@@ -200,7 +176,7 @@ LYCOMMONAPI HRESULT GetPidFromAppName(std::wstring& pszAppProcessName, DWORD& pn
 	return LingYinPerfTool::GetPidFromAppName(pszAppProcessName, pnProcessID);
 }
 
-LYCOMMONAPI HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, LPWSTR& pszFunctionDllName, PCSTR pszFunctionName, ULONG64& pnFunctionAddress)
+LYCOMMONAPI HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, std::wstring& pszFunctionDllName, std::wstring pszFunctionName, ULONG64& pnFunctionAddress)
 {
 	return LingYinPerfTool::GetFunctionAddressFromSymbol(pnProcessID, pszFunctionDllName, pszFunctionName, pnFunctionAddress);
 }
