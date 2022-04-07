@@ -176,7 +176,7 @@ LYCOMMONAPI HRESULT GetPidFromAppName(std::wstring& pszAppProcessName, DWORD& pn
 	return LingYinPerfTool::GetPidFromAppName(pszAppProcessName, pnProcessID);
 }
 
-LYCOMMONAPI HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, std::wstring& pszFunctionDllName, std::wstring pszFunctionName, ULONG64& pnFunctionAddress)
+LYCOMMONAPI HRESULT GetFunctionAddressFromSymbol(DWORD& pnProcessID, std::wstring& pszFunctionDllName, std::wstring& pszFunctionName, ULONG64& pnFunctionAddress)
 {
 	return LingYinPerfTool::GetFunctionAddressFromSymbol(pnProcessID, pszFunctionDllName, pszFunctionName, pnFunctionAddress);
 }
