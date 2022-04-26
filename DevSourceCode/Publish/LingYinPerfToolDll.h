@@ -3,7 +3,7 @@
 *																						*
 *  Copyright (c) 2022 Ricardo2001zg All Rights Reserved.								*
 *																						*
-*  @file  KHagsRegeditDll.h																*
+*  @file  LingYinPerfToolDll.h																*
 *  @brief readme:																		*
 *  1.C++ 11																				*
 *  	(1) nullptr																			*

@@ -1,9 +1,9 @@
 /****************************************************************************************
-*  LingYinPerfToolDll.h																	*
+*  LingYinPerfToolDll.cpp																*
 *																						*
 *  Copyright (c) 2022 Ricardo2001zg All Rights Reserved.								*
 *																						*
-*  @file  KHagsRegeditDll.h																*
+*  @file  LingYinPerfToolDll.cpp														*
 *  @brief readme:																		*
 *  1.Base on C++ 11																		*
 *  2.rules																				*
